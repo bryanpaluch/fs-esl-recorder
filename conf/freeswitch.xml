@@ -1,0 +1,20 @@
+
+<!--
+Include this XML in your dialplan
+-->
+
+<extension name="event_socket_nodejs">
+      <condition field="destination_number" expression="5335">
+        <action application="answer"/>
+        <action application="set" data="mode=record"/>
+        <action application="socket" data="127.0.0.1:9998 async full"/>
+      </condition>
+    </extension>
+    <extension name="event_socket_playback">
+      <condition field="destination_number" expression="5335">
+        <action application="answer"/>
+        <action application="set" data="mode=playback"/>
+        <action application="socket" data="127.0.0.1:9998 async full"/>
+      </condition>
+</extension>
+
